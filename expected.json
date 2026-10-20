@@ -1,0 +1,658 @@
+[
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.01",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "No stack from the kit of 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm fits inside a 0.01 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.01",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 0.01 mm gap is not a whole multiple; the nearest exact hits are 0 mm below and 0.05 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.01",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 0.01 mm gap: 0.01 mm (1 shim). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.01",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 0.01 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.01",
+   "0.25, 0.75"
+  ],
+  "expected": "No stack from the kit of 0.25 mm, 0.75 mm fits inside a 0.01 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.01",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 0.01 mm gap is not a whole multiple; the nearest exact hits are 0 mm below and 0.25 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.01",
+   "2, 3"
+  ],
+  "expected": "No stack from the kit of 2 mm, 3 mm fits inside a 0.01 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.01",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 0.01 mm gap is not a whole multiple; the nearest exact hits are 0 mm below and 1 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.01",
+   "0.1, 0.3"
+  ],
+  "expected": "No stack from the kit of 0.1 mm, 0.3 mm fits inside a 0.01 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.01",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 0.01 mm gap is not a whole multiple; the nearest exact hits are 0 mm below and 0.1 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.3",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "From the kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm, the fewest shims for a 0.3 mm gap: 0.2 mm + 0.1 mm (2 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.3",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 0.3 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.3",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 0.3 mm gap: 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + \u2026 (30 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.3",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 0.3 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.3",
+   "0.25, 0.75"
+  ],
+  "expected": "From the kit 0.25 mm, 0.75 mm, the fewest shims for a 0.3 mm gap: 0.25 mm (1 shim). That leaves 0.05 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.3",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 0.3 mm gap is not a whole multiple; the nearest exact hits are 0.25 mm below and 0.5 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.3",
+   "2, 3"
+  ],
+  "expected": "No stack from the kit of 2 mm, 3 mm fits inside a 0.3 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.3",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 0.3 mm gap is not a whole multiple; the nearest exact hits are 0 mm below and 1 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0.3",
+   "0.1, 0.3"
+  ],
+  "expected": "From the kit 0.1 mm, 0.3 mm, the fewest shims for a 0.3 mm gap: 0.3 mm (1 shim). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "0.3",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 0.3 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.85",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "From the kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm, the fewest shims for a 1.85 mm gap: 1 mm + 0.5 mm + 0.2 mm + 0.1 mm + 0.05 mm (5 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.85",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 1.85 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.85",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 1.85 mm gap: 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + \u2026 (185 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.85",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 1.85 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.85",
+   "0.25, 0.75"
+  ],
+  "expected": "From the kit 0.25 mm, 0.75 mm, the fewest shims for a 1.85 mm gap: 0.75 mm + 0.75 mm + 0.25 mm (3 shims). That leaves 0.1 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.85",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 1.85 mm gap is not a whole multiple; the nearest exact hits are 1.75 mm below and 2 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.85",
+   "2, 3"
+  ],
+  "expected": "No stack from the kit of 2 mm, 3 mm fits inside a 1.85 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.85",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 1.85 mm gap is not a whole multiple; the nearest exact hits are 1 mm below and 2 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.85",
+   "0.1, 0.3"
+  ],
+  "expected": "From the kit 0.1 mm, 0.3 mm, the fewest shims for a 1.85 mm gap: 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm (6 shims). That leaves 0.05 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.85",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 1.85 mm gap is not a whole multiple; the nearest exact hits are 1.8 mm below and 1.9 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.87",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "From the kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm, the fewest shims for a 1.87 mm gap: 1 mm + 0.5 mm + 0.2 mm + 0.1 mm + 0.05 mm (5 shims). That leaves 0.02 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.87",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 1.87 mm gap is not a whole multiple; the nearest exact hits are 1.85 mm below and 1.9 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.87",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 1.87 mm gap: 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + \u2026 (187 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.87",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 1.87 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.87",
+   "0.25, 0.75"
+  ],
+  "expected": "From the kit 0.25 mm, 0.75 mm, the fewest shims for a 1.87 mm gap: 0.75 mm + 0.75 mm + 0.25 mm (3 shims). That leaves 0.12 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.87",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 1.87 mm gap is not a whole multiple; the nearest exact hits are 1.75 mm below and 2 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.87",
+   "2, 3"
+  ],
+  "expected": "No stack from the kit of 2 mm, 3 mm fits inside a 1.87 mm gap at all."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.87",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 1.87 mm gap is not a whole multiple; the nearest exact hits are 1 mm below and 2 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.87",
+   "0.1, 0.3"
+  ],
+  "expected": "From the kit 0.1 mm, 0.3 mm, the fewest shims for a 1.87 mm gap: 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm (6 shims). That leaves 0.07 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "1.87",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 1.87 mm gap is not a whole multiple; the nearest exact hits are 1.8 mm below and 1.9 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "12.34",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "From the kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm, the fewest shims for a 12.34 mm gap: 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + \u2026 (14 shims). That leaves 0.04 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "12.34",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 12.34 mm gap is not a whole multiple; the nearest exact hits are 12.3 mm below and 12.35 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "12.34",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 12.34 mm gap: 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + \u2026 (1234 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "12.34",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 12.34 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "12.34",
+   "0.25, 0.75"
+  ],
+  "expected": "From the kit 0.25 mm, 0.75 mm, the fewest shims for a 12.34 mm gap: 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + \u2026 (17 shims). That leaves 0.09 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "12.34",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 12.34 mm gap is not a whole multiple; the nearest exact hits are 12.25 mm below and 12.5 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "12.34",
+   "2, 3"
+  ],
+  "expected": "From the kit 2 mm, 3 mm, the fewest shims for a 12.34 mm gap: 3 mm + 3 mm + 3 mm + 3 mm (4 shims). That leaves 0.34 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "12.34",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 12.34 mm gap is not a whole multiple; the nearest exact hits are 12 mm below and 13 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "12.34",
+   "0.1, 0.3"
+  ],
+  "expected": "From the kit 0.1 mm, 0.3 mm, the fewest shims for a 12.34 mm gap: 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + \u2026 (41 shims). That leaves 0.04 mm the kit cannot reach."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "12.34",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 12.34 mm gap is not a whole multiple; the nearest exact hits are 12.3 mm below and 12.4 mm above."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "From the kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm, the fewest shims for a 50 mm gap: 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + 1 mm + \u2026 (50 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "50",
+   "0.05, 0.1, 0.2, 0.5, 1"
+  ],
+  "expected": "The kit 0.05 mm, 0.1 mm, 0.2 mm, 0.5 mm, 1 mm steps in multiples of 0.05 mm. The 50 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50",
+   "0.01"
+  ],
+  "expected": "From the kit 0.01 mm, the fewest shims for a 50 mm gap: 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + 0.01 mm + \u2026 (5000 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "50",
+   "0.01"
+  ],
+  "expected": "The kit 0.01 mm steps in multiples of 0.01 mm. The 50 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50",
+   "0.25, 0.75"
+  ],
+  "expected": "From the kit 0.25 mm, 0.75 mm, the fewest shims for a 50 mm gap: 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + 0.75 mm + \u2026 (68 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "50",
+   "0.25, 0.75"
+  ],
+  "expected": "The kit 0.25 mm, 0.75 mm steps in multiples of 0.25 mm. The 50 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50",
+   "2, 3"
+  ],
+  "expected": "From the kit 2 mm, 3 mm, the fewest shims for a 50 mm gap: 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + 3 mm + \u2026 (17 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "50",
+   "2, 3"
+  ],
+  "expected": "The kit 2 mm, 3 mm steps in multiples of 1 mm. The 50 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50",
+   "0.1, 0.3"
+  ],
+  "expected": "From the kit 0.1 mm, 0.3 mm, the fewest shims for a 50 mm gap: 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + 0.3 mm + \u2026 (168 shims). That fills the gap exactly."
+ },
+ {
+  "fn": "stepTruth",
+  "args": [
+   "50",
+   "0.1, 0.3"
+  ],
+  "expected": "The kit 0.1 mm, 0.3 mm steps in multiples of 0.1 mm. The 50 mm gap is a whole multiple, so an exact stack exists if the kit is deep enough."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1.85",
+   "1, 0.5, 0.2, 0.1, 0.05"
+  ],
+  "expected": "Your stack of 1 mm + 0.5 mm + 0.2 mm + 0.1 mm + 0.05 mm adds up to 1.85 mm. The gap is 1.85 mm, so the stack fills it exactly."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "0.01",
+   "0.02"
+  ],
+  "expected": "Your stack of 0.02 mm adds up to 0.02 mm. The gap is 0.01 mm, so the stack stands 0.01 mm proud of the gap."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "5",
+   "2, 2, 2"
+  ],
+  "expected": "Your stack of 2 mm adds up to 2 mm. The gap is 5 mm, so 3 mm stays unfilled."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "0.5",
+   "0.5, 0.5"
+  ],
+  "expected": "Your stack of 0.5 mm adds up to 0.5 mm. The gap is 0.5 mm, so the stack fills it exactly."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "12.34",
+   "10, 2, 0.3, 0.04"
+  ],
+  "expected": "Your stack of 10 mm + 2 mm + 0.3 mm + 0.04 mm adds up to 12.34 mm. The gap is 12.34 mm, so the stack fills it exactly."
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   "0.1"
+  ],
+  "expected": "Your stack of 0.1 mm adds up to 0.1 mm. The gap is 1 mm, so 0.9 mm stays unfilled."
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "0",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "0",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "50.01",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "50.01",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1.234",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1.234",
+   "1"
+  ],
+  "expected": "ERR:the gap must be from 0.01 to 50 mm with at most two decimal places"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1",
+   "0"
+  ],
+  "expected": "ERR:each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   "0"
+  ],
+  "expected": "ERR:each shim in the stack must be from 0.01 to 10 mm with at most two decimal places, up to 12 shims"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1",
+   "10.01"
+  ],
+  "expected": "ERR:each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   "10.01"
+  ],
+  "expected": "ERR:each shim in the stack must be from 0.01 to 10 mm with at most two decimal places, up to 12 shims"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1",
+   "1.234"
+  ],
+  "expected": "ERR:each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   "1.234"
+  ],
+  "expected": "ERR:each shim in the stack must be from 0.01 to 10 mm with at most two decimal places, up to 12 shims"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1",
+   ", ,"
+  ],
+  "expected": "ERR:each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   ", ,"
+  ],
+  "expected": "ERR:each shim in the stack must be from 0.01 to 10 mm with at most two decimal places, up to 12 shims"
+ },
+ {
+  "fn": "pickTruth",
+  "args": [
+   "1",
+   "1, 1, 1, 1, 1, 1, 1, 1, 1"
+  ],
+  "expected": "ERR:each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes"
+ },
+ {
+  "fn": "stackTruth",
+  "args": [
+   "1",
+   "1, 1, 1, 1, 1, 1, 1, 1, 1"
+  ],
+  "expected": "Your stack of 1 mm adds up to 1 mm. The gap is 1 mm, so the stack fills it exactly."
+ }
+]
