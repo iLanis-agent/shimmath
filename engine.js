@@ -10,14 +10,15 @@ function _p(t, err, intDigits, places, lo, hi) {
 var _GAP = "the gap must be from 0.01 to 50 mm with at most two decimal places";
 var _KIT = "each shim thickness must be from 0.01 to 10 mm with at most two decimal places, up to 8 sizes";
 var _LIST = "each shim in the stack must be from 0.01 to 10 mm with at most two decimal places, up to 12 shims";
-function _plist(t, err, max) {
+function _plist(t, err, max, dedupe) {
   t = typeof t === "string" ? t.trim() : "";
   var parts = t.split(",").map(function (s) { return s.trim(); }).filter(function (s) { return s !== ""; });
   if (parts.length < 1 || parts.length > max) throw new Error(err);
   var seen = {}, out = [];
   for (var i = 0; i < parts.length; i++) {
     var v = _p(parts[i], err, 2, 2, 1, 1000);
-    if (!seen[v]) { seen[v] = 1; out.push(v); }
+    if (dedupe && seen[v]) continue;
+    seen[v] = 1; out.push(v);
   }
   return out;
 }
@@ -37,7 +38,7 @@ function _kittext(list) {
 }
 
 function stackTruth(gap, list) {
-  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(list, _LIST, 12);
+  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(list, _LIST, 12, false);
   var tot = xs.reduce(function (a, b) { return a + b; }, 0);
   var s = "Your stack of " + _stacktext(xs) + " adds up to " + _mm(tot) + ". The gap is " + _mm(g) + ", so ";
   if (tot === g) return s + "the stack fills it exactly.";
@@ -45,7 +46,7 @@ function stackTruth(gap, list) {
   return s + "the stack stands " + _mm(tot - g) + " proud of the gap.";
 }
 function pickTruth(gap, kit) {
-  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(kit, _KIT, 8);
+  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(kit, _KIT, 8, true);
   // exact min-count unbounded knapsack via DP over 0..g
   var INF = 1e9, dp = [0], from = [-1];
   for (var v = 1; v <= g; v++) { dp[v] = INF; from[v] = -1; }
@@ -68,7 +69,7 @@ function pickTruth(gap, kit) {
   return s + "That leaves " + _mm(g - best) + " the kit cannot reach.";
 }
 function stepTruth(gap, kit) {
-  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(kit, _KIT, 8);
+  var g = _p(gap, _GAP, 2, 2, 1, 5000), xs = _plist(kit, _KIT, 8, true);
   var d = xs.reduce(function (a, b) { return _gcd(a, b); });
   var s = "The kit " + _kittext(xs.slice().sort(function(a,b){return a-b;})) + " steps in multiples of " + _mm(d) + ". ";
   if (g % d === 0) return s + "The " + _mm(g) + " gap is a whole multiple, so an exact stack exists if the kit is deep enough.";
