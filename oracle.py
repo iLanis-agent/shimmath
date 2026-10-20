@@ -18,15 +18,16 @@ def p(t, err, lo, hi):
         raise ValueError(err)
     return v
 
-def plist(t, err, maxn):
+def plist(t, err, maxn, dedupe=True):
     parts = [s.strip() for s in t.strip().split(",") if s.strip() != ""]
     if len(parts) < 1 or len(parts) > maxn:
         raise ValueError(err)
     out = []
     for s in parts:
         v = p(s, err, 1, 1000)
-        if v not in out:
-            out.append(v)
+        if dedupe and v in out:
+            continue
+        out.append(v)
     return out
 
 def dec(v):
@@ -39,7 +40,7 @@ def stacktext(xs): return " + ".join(mm(x) for x in xs)
 def kittext(xs): return ", ".join(mm(x) for x in xs)
 
 def stackTruth(gap, lst):
-    g = p(gap, GAP, 1, 5000); xs = plist(lst, LIST, 12)
+    g = p(gap, GAP, 1, 5000); xs = plist(lst, LIST, 12, dedupe=False)
     tot = sum(xs)
     s = "Your stack of " + stacktext(xs) + " adds up to " + mm(tot) + ". The gap is " + mm(g) + ", so "
     if tot == g: return s + "the stack fills it exactly."
